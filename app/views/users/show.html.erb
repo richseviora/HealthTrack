@@ -1,3 +1,22 @@
-<div class="">
+<% content_for :title do %>User History
+<% end %>
+<section class="row">
+  <div class="col-md-12">
+    <%= @user.name %> &ndash; <%= @user.date_of_birth %> &ndash; <%= @user.gender %>
+  </div>
+</section>
+<section class="row">
+  <div class="col-md-12"><h2>Medication History</h2></div>
+  <% if @user.prescriptions.count == 0 %>
+      <div class="col-md-12">
+        <div class="alert alert-warning">No Prescriptions</div>
+      </div>
+  <% else %>
+      <% @user.prescriptions.each do |prescription| %>
+          <div class="col-md-12">
+            <%= prescription.name %> &ndash; <%= prescription.date_issued %>
+          </div>
+      <% end %>
+  <% end %>
 
-</div>
+</section>

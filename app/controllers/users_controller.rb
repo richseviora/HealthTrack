@@ -1,6 +1,9 @@
 class UsersController < ApplicationController
+  rescue_from ActiveRecord::RecordNotFound, with: :handle_not_found
+
   def show
     @user = User.find(params[:id])
+    @new_prescription = @user.prescriptions.build
   end
 
   def new
@@ -18,6 +21,10 @@ class UsersController < ApplicationController
   end
 
   private
+
+  def handle_not_found
+    redirect_to new_session_path, alert: 'User Not Found'
+  end
 
   def user_params
     params.require(:user).permit(:name, :email, :date_of_birth, :gender, :password, :password_confirmation)
