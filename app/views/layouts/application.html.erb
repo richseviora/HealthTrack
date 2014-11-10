@@ -11,12 +11,15 @@
 <body>
 <div class="container">
   <div class="row">
+    <header class="col-md-12">
+      <h1>HealthTrack
+        <small><%= yield :title %></small>
+      </h1>
+    </header>
+  </div>
+  <div class="row">
     <div class="col-md-3">
-      <header>
-        <h1>HealthTrack
-          <small><%= yield :title %></small>
-        </h1>
-      </header>
+
       <nav>
         <div class="list-group">
           <%= link_to 'Create User', new_user_path, class: 'list-group-item' %>
