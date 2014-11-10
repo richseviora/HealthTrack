@@ -2,7 +2,7 @@
 <% end %>
 <section class="row">
   <div class="col-md-12">
-    <%= @user.name %> &ndash; <%= @user.date_of_birth %> &ndash; <%= @user.gender %>
+    <%= @user.name %> &ndash; <%= @user.date_of_birth.to_formatted_s(:short) %> &ndash; <%= @user.gender %>
   </div>
 </section>
 <section class="row">
@@ -13,10 +13,25 @@
       </div>
   <% else %>
       <% @user.prescriptions.each do |prescription| %>
-          <div class="col-md-12">
-            <%= prescription.name %> &ndash; <%= prescription.date_issued %>
-          </div>
+          <% unless prescription.id.nil? %>
+              <div class="col-md-12">
+                <%= prescription.name %>&ndash; <%= prescription.date_issued.to_formatted_s(:short) %>
+              </div>
+          <% end %>
       <% end %>
   <% end %>
+
+
+    <div class="col-md-12"><%= form_for([@user, @new_prescription]) do |f| %>
+        <div class="form-group">
+          <%= f.label :name %>
+          <%= f.text_field :name, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :date_issued %>
+          <%= f.date_field :date_issued, class: 'form-control' %>
+        </div>
+        <%= f.submit %>
+    <% end %></div>
 
 </section>
