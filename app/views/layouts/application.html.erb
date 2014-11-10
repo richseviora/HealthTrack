@@ -17,14 +17,47 @@
       </h1>
     </header>
   </div>
+
+  <% unless flash.empty? %>
+      <div class="row">
+        <div class="col-md-12">
+          <% if flash.notice %>
+              <div class="alert alert-info">
+                <%= flash.notice %>
+              </div>
+          <% end %></div>
+        <div class="col-md-12">
+          <% if flash.alert %>
+              <div class="alert alert-danger">
+                <%= flash.alert %>
+              </div>
+          <% end %></div>
+      </div>
+  <% end %>
+
   <div class="row">
     <div class="col-md-3">
+      <% if current_user %>
+          <div class="row">
+            <%= content_tag :div, "Welcome #{current_user.name}", class: 'col-md-12' %>
+          </div>
+      <% end %>
+      <nav class="row">
+        <div class="col-md-12">
+          <div class="list-group">
+            <% if current_user %>
 
-      <nav>
-        <div class="list-group">
-          <%= link_to 'Create User', new_user_path, class: 'list-group-item' %>
+                <%= link_to 'Log Out', session_path("current"), method: :delete, class: 'list-group-item' %>
+            <% else %>
+                <%= link_to 'Create User', new_user_path, class: 'list-group-item' %>
+                <%= link_to 'Log In', new_session_path, class: 'list-group-item' %>
+            <% end %>
+          </div>
         </div>
       </nav>
+      <div class="row">
+
+      </div>
     </div>
     <div class="col-md-9">
       <%= yield %>

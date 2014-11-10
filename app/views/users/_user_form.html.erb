@@ -1,10 +1,10 @@
 <%= form_for(@user, html: {class: 'form-horizontal'}) do |f| %>
     <% if @user.errors.any? %>
         <div class="row">
-          <div class="col-md-9">
+          <div class="col-md-12">
             <ul>
               <% @user.errors.full_messages.each do |message| %>
-                <li><%= message %></li>
+                  <li><%= message %></li>
               <% end %>
             </ul>
           </div>
@@ -12,23 +12,23 @@
     <% end %>
     <div class="form-group">
       <%= label @user, :name, class: 'control-label col-md-3' %>
-      <%= content_tag(:div, (f.text_field :name, class: 'form-control'), class: 'col-md-6') %>
+      <%= content_tag(:div, (f.text_field :name, class: 'form-control'), class: 'col-md-9') %>
     </div>
     <div class="form-group">
       <%= label @user, :email, class: 'control-label col-md-3' %>
-      <%= content_tag(:div, (f.text_field :email, class: 'form-control'), class: 'col-md-6') %>
+      <%= content_tag(:div, (f.text_field :email, class: 'form-control'), class: 'col-md-9') %>
     </div>
     <div class="form-group">
       <%= label @user, :password, class: 'control-label col-md-3' %>
-      <%= content_tag(:div, (f.password_field :password, class: 'form-control'), class: 'col-md-6') %>
+      <%= content_tag(:div, (f.password_field :password, class: 'form-control'), class: 'col-md-9') %>
     </div>
     <div class="form-group">
       <%= label @user, :password_confirmation, class: 'control-label col-md-3' %>
-      <%= content_tag(:div, (f.password_field :password_confirmation, class: 'form-control'), class: 'col-md-6') %>
+      <%= content_tag(:div, (f.password_field :password_confirmation, class: 'form-control'), class: 'col-md-9') %>
     </div>
     <div class="form-group">
       <%= label @user, :date_of_birth, class: 'control-label col-md-3' %>
-      <%= content_tag(:div, (f.date_field :date_of_birth, class: 'form-control'), class: 'col-md-6') %>
+      <%= content_tag(:div, (f.date_field :date_of_birth, class: 'form-control'), class: 'col-md-9') %>
     </div>
     <div class="form-group">
       <%= label @user, :gender, class: 'control-label col-md-3' %>
@@ -38,7 +38,7 @@
       </div>
     </div>
     <div class="form-group">
-      <div class="col-md-9">
+      <div class="col-md-12">
         <%= f.submit %>
       </div>
     </div>

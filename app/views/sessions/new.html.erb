@@ -1,0 +1,13 @@
+<%= form_tag(sessions_path) do |f| %>
+    <div class="form-group">
+      <%= label(:email,'Email',class:'input-label' ) %>
+      <%= email_field(:user,:email, class:'form-control') %>
+    </div>
+    <div class="form-group">
+      <%= label(:password,'Password',class:'input-label' ) %>
+      <%= password_field(:user,:password, class:'form-control') %>
+    </div>
+    <div class="form-group">
+      <%= submit_tag %>
+    </div>
+<% end %>
