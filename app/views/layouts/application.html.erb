@@ -2,13 +2,32 @@
 <html>
 <head>
   <title>HealthTrack</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css', media: 'all' %>
+  <%= javascript_include_tag 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js' %>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <header>
+        <h1>HealthTrack
+          <small><%= yield :title %></small>
+        </h1>
+      </header>
+      <nav>
+        <div class="list-group">
+          <%= link_to 'Create User', new_user_path, class: 'list-group-item' %>
+        </div>
+      </nav>
+    </div>
+    <div class="col-md-9">
+      <%= yield %>
+    </div>
+  </div>
+</div>
 
 </body>
 </html>
