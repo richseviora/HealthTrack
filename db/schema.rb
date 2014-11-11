@@ -11,12 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141110183937) do
+ActiveRecord::Schema.define(version: 20141110200951) do
 
   create_table "prescriptions", force: true do |t|
     t.string   "name"
     t.datetime "date_issued"
     t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "symptoms", force: true do |t|
+    t.integer  "user_id"
+    t.string   "name"
+    t.datetime "date_started"
+    t.datetime "date_ended"
+    t.text     "comments"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

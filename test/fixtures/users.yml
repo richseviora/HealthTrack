@@ -2,14 +2,14 @@
 
 one:
   name: MyString
-  email: MyString
-  password_digest: MyString
-  age: 2014-11-10 10:50:09
-  gender: MyString
+  email: richard@seviora.com
+  password_digest: <%= BCrypt::Password.create("password", cost: 4) %>
+  date_of_birth: 2014-11-10 10:50:09
+  gender: M
 
 two:
   name: MyString
-  email: MyString
-  password_digest: MyString
-  age: 2014-11-10 10:50:09
-  gender: MyString
+  email: rich@seviora.com
+  password_digest: <%= BCrypt::Password.create("password", cost: 4) %>
+  date_of_birth: 2014-11-10 10:50:09
+  gender: F
