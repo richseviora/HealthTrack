@@ -1,0 +1,5 @@
+<% unless prescription.id.nil? %>
+    <div class="col-md-12">
+      <%= prescription.name %>&ndash; <%= prescription.date_issued.to_formatted_s(:short) %>
+    </div>
+<% end %>

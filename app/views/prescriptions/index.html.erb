@@ -1,0 +1,31 @@
+<% content_for :title do %>User History
+<% end %>
+<section class="row">
+  <div class="col-md-12">
+    <%= current_user.name %> &ndash; <%= @user.date_of_birth.to_formatted_s(:short) %> &ndash; <%= @user.gender %>
+  </div>
+</section>
+<section class="row">
+  <div class="col-md-12"><h2>Medication History</h2></div>
+  <% if @prescriptions.count == 0 %>
+      <div class="col-md-12">
+        <div class="alert alert-warning">No Prescriptions</div>
+      </div>
+  <% else %>
+      <%= render @prescriptions %>
+  <% end %>
+
+
+  <div class="col-md-12"><%= form_for([@user, @new_prescription]) do |f| %>
+        <div class="form-group">
+          <%= f.label :name %>
+          <%= f.text_field :name, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.label :date_issued %>
+          <%= f.date_field :date_issued, class: 'form-control' %>
+        </div>
+        <%= f.submit %>
+    <% end %></div>
+
+</section>

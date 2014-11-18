@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="Rails HealthTrack: development" uuid="6c631f78-18e7-4b65-b6bd-f84b0ffa56a8">
+      <secret-storage>memory</secret-storage>
+    </data-source>
+    <data-source name="Rails HealthTrack: test" uuid="2b1619d9-984d-4fbb-b39e-689b6d3a7bc2">
+      <secret-storage>memory</secret-storage>
+    </data-source>
+  </component>
+</project>
